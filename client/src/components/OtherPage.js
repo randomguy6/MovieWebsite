@@ -16,7 +16,7 @@ export default class OtherPage extends Component{
         <div id="somePage">
             <img src={ranImage} className="Meme" alt="meme" />
             <p>Testing other page works </p>
-            {console.log(this.props.match.params.id)}
+            {console.log("This is used to get the id of the url", this.props.match.params.id)}
             <Link to="/">Home</Link>
         </div>
     );

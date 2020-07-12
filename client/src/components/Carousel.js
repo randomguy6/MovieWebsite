@@ -9,8 +9,25 @@ export default class CustomCarousel extends Component{
   constructor(props){
       super(props);
       this.state = {
-          movies: this.props.movieList
+          movies: []
       }
+  }
+
+  componentDidMount(){
+    fetch("/testAPI")
+      .then(res => res.json())
+      .then(movies => this.setState({movies}))
+  }
+
+  constructReview(movie){
+    return(
+        <div id={movie.title+" Section"}>
+            <li key={movie.title}> {movie.title} {movie.year}</li>
+            <ul>
+                <li key={movie.title+"Review"}> {movie.review} </li>
+            </ul>
+        </div>
+    );
   }
 
   renderItems(){
@@ -33,8 +50,14 @@ export default class CustomCarousel extends Component{
 
   render() {
     return (
-      <div>
-        {this.renderCarousel()}
+      <div id="homePage">
+          <h2>Movies</h2>
+          <ul>
+              {this.state.movies.map((movie) =>{
+                  return this.constructReview(movie);
+                }
+              )}
+          </ul>
       </div>
     );
   }
