@@ -6,24 +6,20 @@ export default class Home extends Component{
   constructor(props){
     super(props);
     this.state = {
-      apiResponse:""
+      movies: []
     };
-    this.callAPI();
   }
 
-  callAPI(){
+  componentDidMount(){
     fetch("http://localhost:9000/testAPI")
-      .then(res => res.text())
-      .then(res => this.setState({apiResponse: res}));
+      .then(res => res.json())
+      .then(movies => this.setState({movies}))
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <p>{this.state.apiResponse}</p>
+        <p>Test text</p>
       </div>
     );
   }
