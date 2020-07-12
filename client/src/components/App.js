@@ -10,10 +10,10 @@ export default class App extends Component{
 
   render() {
     return (
-      <div>
+      <div id="mainApp">
         <Router>
           <Navigation/>
-          <div>
+          <div id="switches">
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/other/:id" component={OtherPage} />

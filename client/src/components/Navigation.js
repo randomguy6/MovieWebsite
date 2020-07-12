@@ -7,7 +7,8 @@ export default class Navigation extends Component{
 
   render() {
     return (
-        <Navbar bg="light" sticky="top">
+      <div id="navigationBar">
+        <Navbar bg="dark" sticky="top">
             <Navbar.Brand>Future Logo in Here</Navbar.Brand>
             <Nav className="mr-auto">
                 {/* <NavLink to="/">Home</NavLink> */}
@@ -16,6 +17,7 @@ export default class Navigation extends Component{
                 {/* <NavLink to="/other/123">OtherPage</NavLink> */}
             </Nav>
         </Navbar>
+      </div>
     );
   }
 }

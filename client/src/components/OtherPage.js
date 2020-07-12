@@ -13,7 +13,7 @@ export default class OtherPage extends Component{
 
   render() {
     return (
-        <div>
+        <div id="somePage">
             <img src={ranImage} className="Meme" alt="meme" />
             <p>Testing other page works </p>
             {console.log(this.props.match.params.id)}

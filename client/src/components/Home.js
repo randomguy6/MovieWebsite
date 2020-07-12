@@ -16,10 +16,27 @@ export default class Home extends Component{
       .then(movies => this.setState({movies}))
   }
 
+  constructReview(movie){
+    return(
+        <div id={movie.title+" Section"}>
+            <li key={movie.title}> {movie.title} {movie.year}</li>
+            <ul>
+                <li key={movie.title+"Review"}> {movie.review} </li>
+            </ul>
+        </div>
+  );
+}
+
   render() {
     return (
-      <div className="App">
-        <p>Test text</p>
+      <div id="homePage">
+          <h2>Movies</h2>
+          <ul>
+              {this.state.movies.map((movie) =>{
+                  return this.constructReview(movie);
+                }
+              )}
+          </ul>
       </div>
     );
   }
