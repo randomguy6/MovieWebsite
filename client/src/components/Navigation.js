@@ -15,7 +15,7 @@ export default class Navigation extends Component{
       <div id="navigationBar">
         <Navbar bg="light" sticky="top">
             <Navbar.Brand>Future Logo in Here</Navbar.Brand>
-            <Nav tabs className="mr-auto">
+            <Nav className="mr-auto">
                 <NavLink className="links" exact="true" href="/" >Home</NavLink>
                 <NavLink className="links" exact="true" href="/other/123" >Random Page</NavLink>
             </Nav>

@@ -1,3 +1,5 @@
-.links {
-    color: rgb(202, 33, 202);
+.navigationBar {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
 }

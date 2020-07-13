@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Carousel from 'react-material-ui-carousel'
-import {Paper} from '@material-ui/core'
+import { Card, Grid} from '@material-ui/core'
 import './App.css';
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 
@@ -22,7 +22,7 @@ export default class CustomCarousel extends Component{
   constructReview(movie){
     return(
         <div id={movie.title+" Section"}>
-            <li key={movie.title}> {movie.title} {movie.year}</li>
+            <h4> {movie.title} {movie.year}</h4>
             <ul>
                 <li key={movie.title+"Review"}> {movie.review} </li>
             </ul>
@@ -33,16 +33,20 @@ export default class CustomCarousel extends Component{
   renderItems(){
       console.log("Access from carousel", this.state.movies[0]);
     return(
-      <Paper>
-        <h2>{this.state.movies[0]}</h2>
-        <p>Its something</p>
-      </Paper>
+      <Card raised>
+        <Grid>
+          {this.state.movies.map((movie) =>{
+              return this.constructReview(movie);
+            }
+          )}
+        </Grid>
+      </Card>
     );
   }
 
   renderCarousel(){
     return(
-      <Carousel autoPlay={true} animation>
+      <Carousel className="Example" autoPlay={true} animation="slide" navButtonsAlwaysVisible={true}>
         {this.renderItems()}
       </Carousel>
     );
@@ -51,13 +55,8 @@ export default class CustomCarousel extends Component{
   render() {
     return (
       <div id="homePage">
-          <h2>Movies</h2>
-          <ul>
-              {this.state.movies.map((movie) =>{
-                  return this.constructReview(movie);
-                }
-              )}
-          </ul>
+        <p>In progress</p>
+        {this.renderCarousel()}
       </div>
     );
   }
