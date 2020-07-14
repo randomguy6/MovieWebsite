@@ -1,0 +1,14 @@
+.Carousel {
+    padding: 25px 100px;
+}
+
+.Card{
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+}
+
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import { Button, Container, Row, Col } from "reactstrap"
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
-import './App.css';
+import StarRating from "react-star-ratings"
+import style from "./Carousel.module.css"
 
 export default class CustomCarousel extends Component{
 
@@ -22,17 +24,22 @@ export default class CustomCarousel extends Component{
     let items = [];
     this.state.movies.forEach((movie) => {
       items.push(
-        <div key={movie.title + " card"}>
+        <div key={movie.title + " card"} className="text-center">
           <Paper elevation={5}>
-            <div className="row">
-              <div className="col">
+            <Row>
+              <Col>
                 <img src={movie.image} alt={movie.title+ " Scene"}/>
-              </div>
-              <div className="col">
-                <h3>{movie.title}</h3>
-                <h5>Rating: {movie.rating}</h5>
-              </div>
-            </div>
+              </Col>
+              <Col style={{padding: '25px'}}>
+                <h3>{movie.title} ({movie.year})</h3>
+                <StarRating rating={movie.rating}
+                  starRatedColor="rgb(218,165,32)"
+                />
+                <Row style={{padding: '20px'}}>
+                  <Button outline color="warning" className={style.centered}>View Review</Button>
+                </Row>
+              </Col>
+            </Row>
           </Paper>
         </div>
       );
@@ -43,7 +50,7 @@ export default class CustomCarousel extends Component{
   renderCarousel(){
     return(
       <div classs="carousel">
-        <Carousel startAt={1} timer={1000} animation="fade" navButtonsAlwaysVisible="true">
+        <Carousel className={style.Carousel} startAt={1} timer={1000} animation="fade" navButtonsAlwaysVisible="true">
           {this.renderCards()}
         </Carousel>
       </div>
@@ -53,7 +60,6 @@ export default class CustomCarousel extends Component{
   render() {
     return (
       <div id="homePage">
-        <p>In progress</p>
         {this.renderCarousel()}
       </div>
     );
