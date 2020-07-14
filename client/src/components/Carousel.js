@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Card, Grid} from '@material-ui/core'
+import { Paper } from '@material-ui/core'
 import './App.css';
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 
 export default class CustomCarousel extends Component{
 
@@ -19,36 +18,35 @@ export default class CustomCarousel extends Component{
       .then(movies => this.setState({movies}))
   }
 
-  constructReview(movie){
-    return(
-        <div id={movie.title+" Section"}>
-            <h4> {movie.title} {movie.year}</h4>
-            <ul>
-                <li key={movie.title+"Review"}> {movie.review} </li>
-            </ul>
+  renderCards(){
+    let items = [];
+    this.state.movies.forEach((movie) => {
+      items.push(
+        <div key={movie.title + " card"}>
+          <Paper elevation={5}>
+            <div className="row">
+              <div className="col">
+                <img src={movie.image} alt={movie.title+ " Scene"}/>
+              </div>
+              <div className="col">
+                <h3>{movie.title}</h3>
+                <h5>Rating: {movie.rating}</h5>
+              </div>
+            </div>
+          </Paper>
         </div>
-    );
-  }
-
-  renderItems(){
-      console.log("Access from carousel", this.state.movies[0]);
-    return(
-      <Card raised>
-        <Grid>
-          {this.state.movies.map((movie) =>{
-              return this.constructReview(movie);
-            }
-          )}
-        </Grid>
-      </Card>
-    );
+      );
+    });
+    return items;
   }
 
   renderCarousel(){
     return(
-      <Carousel className="Example" autoPlay={true} animation="slide" navButtonsAlwaysVisible={true}>
-        {this.renderItems()}
-      </Carousel>
+      <div classs="carousel">
+        <Carousel startAt={1} timer={1000} animation="fade" navButtonsAlwaysVisible="true">
+          {this.renderCards()}
+        </Carousel>
+      </div>
     );
   }
 

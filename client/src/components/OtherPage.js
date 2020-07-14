@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Paper, Card, Typography } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 import Carousel from 'react-material-ui-carousel'
 import './OtherPage.css';
 
@@ -14,6 +14,7 @@ export default class OtherPage extends Component{
   render() {
     return (
         <div id="carousel">
+          <h1>This is just a playground</h1>
           {console.log("This is used to get the id of the url", this.props.match.params.id)}
           <Carousel timer={1000} animation="fade" navButtonsAlwaysVisible="true">
             <div className="Paper">
@@ -23,7 +24,7 @@ export default class OtherPage extends Component{
                     <img src="https://bloody-disgusting.com/wp-content/uploads/2019/04/Wicker-Man-e1556216964674.jpg"/>
                   </div>
                   <div class="col">
-                    <Typography align="center" color="primary" variant="h5">Meh</Typography>
+                    <Typography variant="h5">Meh</Typography>
                   </div>
                 </div>
               </Paper>
