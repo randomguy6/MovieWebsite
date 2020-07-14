@@ -36,7 +36,7 @@ export default class CustomCarousel extends Component{
                   starRatedColor="rgb(218,165,32)"
                 />
                 <Row style={{padding: '20px'}}>
-                  <Button outline color="warning" className={style.centered}>View Review</Button>
+                  <Button outline color="warning" className={style.centered} href={"/review/" + movie.title}>View Review</Button>
                 </Row>
               </Col>
             </Row>

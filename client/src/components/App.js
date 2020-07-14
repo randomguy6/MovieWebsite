@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Home from "./Home";
 import OtherPage from "./OtherPage/OtherPage";
 import Navigation from "./Navigation/Navigation"
+import Review from "./ReviewPage/Review"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -15,8 +16,9 @@ export default class App extends Component{
           <Navigation/>
           <div id="switches">
             <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/other/:id" component={OtherPage} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/other/:id" component={OtherPage} />
+                <Route exact path="/review/:id" component={Review} />
             </Switch>
           </div>
         </Router>
