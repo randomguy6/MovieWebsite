@@ -13,9 +13,9 @@ export default class Navigation extends Component{
   render() {
     return (
       <div id="navigationBar">
+        <Navbar.Brand>Future Logo in Here</Navbar.Brand>
         <Navbar bg="light" sticky="top">
-            <Navbar.Brand>Future Logo in Here</Navbar.Brand>
-            <Nav className="mr-auto text-center">
+            <Nav className={style.centered}>
                 <NavLink className="links" exact="true" href="/" >Home</NavLink>
                 <NavLink className="links" exact="true" href="/other/123" >Random Page</NavLink>
             </Nav>
