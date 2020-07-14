@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from '../images/logo.svg';
+import CustomCarousel from "./Carousel/Carousel";
 import './App.css';
 
 export default class Home extends Component{
@@ -10,16 +10,10 @@ export default class Home extends Component{
     };
   }
 
-  componentDidMount(){
-    fetch("http://localhost:9000/testAPI")
-      .then(res => res.json())
-      .then(movies => this.setState({movies}))
-  }
-
   render() {
     return (
-      <div className="App">
-        <p>Test text</p>
+      <div>
+        <CustomCarousel />
       </div>
     );
   }
