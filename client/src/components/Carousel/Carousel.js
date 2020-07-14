@@ -50,7 +50,11 @@ export default class CustomCarousel extends Component{
   renderCarousel(){
     return(
       <div classs="carousel">
-        <Carousel className={style.Carousel} startAt={1} timer={1000} animation="fade" navButtonsAlwaysVisible="true">
+        <Carousel className={style.Carousel} 
+                  startAt={0} 
+                  timer={1000} 
+                  animation="fade" 
+                  navButtonsAlwaysVisible="true">
           {this.renderCards()}
         </Carousel>
       </div>

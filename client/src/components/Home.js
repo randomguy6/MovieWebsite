@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CustomCarousel from "./Carousel";
+import CustomCarousel from "./Carousel/Carousel";
 import './App.css';
 
 export default class Home extends Component{
