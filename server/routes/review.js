@@ -6,21 +6,21 @@ var wm = require("../constants/WickerMan.json");
 
 const handleReview = function(req, res, next){
     let id = req.params.id;
-    let ret = ""
+    let ret = {};
     switch(id){
         case "The Wicker Man":
-            ret = wm.review;
+            ret = wm;
             break;
         case "Dragged Across Concrete":
-            ret = dag.review;
+            ret = dag;
             break;
         case "Sanju":
-            ret = san.review;
+            ret = san;
             break;
         default:
-            ret = "Not found"
+            ret = {Error: "Not found"};
     }
-    res.send("Testing try 2 w/ " + ret);
+    res.send(ret);
 };
 
 module.exports = handleReview;

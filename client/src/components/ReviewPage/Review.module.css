@@ -1,0 +1,27 @@
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.author{
+    padding-top: 20px;
+    padding-left: 2%;
+}
+
+.subtitle{
+    color: grey;
+    padding-bottom: 5px;
+    padding-left: 3px;
+}
+
+.header{
+    padding-top: 100px;
+    padding-left: 13%;
+}
+
+.body{
+    margin-top: 50px;
+    font-size: 16px;
+    font-family: Trebuchet;
+    width: 50%;
+}
