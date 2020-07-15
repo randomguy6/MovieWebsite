@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Container, Row } from "reactstrap";
 import StarRating from "react-star-ratings";
+import { Typography } from "@material-ui/core";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Review.module.css';
 
@@ -22,12 +23,20 @@ export default class App extends Component{
 
   renderHeader(){
     return(
-      <Container className={style.header} id="reviewHeader">
-        <h1>{this.state.movie.title}</h1>
-        <StarRating rating={this.state.movie.rating}
-                    starRatedColor="rgb(218,165,32)"
-                    starDimension="30px"
-                />
+      <Container id="reviewHeader">
+        <div id="contents" className={style.header}>
+          <h1>{this.state.movie.title}</h1>
+          <Typography className={style.subtitle} variant="subtitle2">Released: {this.state.movie.year}</Typography>
+          <StarRating rating={this.state.movie.rating}
+                      starRatedColor="rgb(218,165,32)"
+                      starDimension="30px"
+                  />
+          <Row className={style.author}>
+            <a href="/about"><h6>Sai Donepudi</h6></a>
+            <h6 style={{paddingLeft: '10px'}}>{this.state.movie.reviewDate}</h6>
+          </Row>
+        </div>
+        <img src={this.state.movie.image} alt="movie still"/>
       </Container>
     );
   }
@@ -41,7 +50,8 @@ export default class App extends Component{
       items.forEach((paragraph) =>{
         ret.push(
           <Row key={"paragraph" + count}>
-            <p>{paragraph}</p>
+            <Typography variant="body1">{paragraph}</Typography>
+            <br />
           </Row>
         );
         count++;
