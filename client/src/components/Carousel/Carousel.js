@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Container, Row, Col } from "reactstrap"
+import { Button, Row, Col } from "reactstrap"
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import StarRating from "react-star-ratings"
