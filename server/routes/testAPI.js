@@ -3,7 +3,8 @@ var router = express.Router();
 var dag = require("../constants/DAC.json");
 var san = require("../constants/Sanju.json");
 var wm = require("../constants/WickerMan.json");
-const movies = [dag, san, wm];
+var un = require("../constants/Unbreakable.json")
+const movies = [dag, san, wm, un];
 
 const getMovies = function(movies){
     return movies;
