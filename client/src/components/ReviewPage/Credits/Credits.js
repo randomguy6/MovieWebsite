@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import { Container, Row } from "reactstrap";
-import style from "./Credits.module.css"
+import { Container, Row, Col } from "reactstrap";
+import { Typography } from "@material-ui/core";
+// import style from '../Review.module.css';
+import style from './Credits.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Credits extends Component{
@@ -28,24 +30,89 @@ export default class Credits extends Component{
       })
   }
 
+  isMovieEmpty(){
+    let movie = this.state.movie;
+    return Object.keys(movie).length === 0;
+  }
+
+  getCast(){
+    let items = this.state.movie.Actors;
+    items = items.split(", ");
+    items = items.map(actor =>{
+      return(
+        <Row key={actor}>
+          <Typography variant="subtitle1">{actor}</Typography>
+        </Row>
+      );
+    });
+    console.log("After mapping", items);
+    return(
+      <div id="cast" key="cast">
+        <Row>
+          <Typography variant="h6"><u>Cast: </u></Typography>
+        </Row>
+        {items}
+      </div>
+    );
+  }
+
+  getCrew(){
+    const movie = this.state.movie;
+    return(
+      <div id="crew" key="crew">
+        <Row>
+          <Typography variant="h6"><u>Director: </u></Typography>
+        </Row>
+        <Row>
+          <Typography variant="subtitle1">{movie.Director}</Typography>
+        </Row>
+        <br />
+        <Row>
+          <Typography variant="h6"><u>Writers: </u></Typography>
+        </Row>
+        <Row>
+          <Typography variant="subtitle1">{movie.Writer}</Typography>
+        </Row>
+      </div>
+    );
+  }
+
+  getCredits(){
+    const movie = this.state.movie;
+    return(
+      <div key="credits" id="credits">
+        {this.getCast()}
+        {this.getCrew()}
+      </div>
+    );
+  }
+
   render() {
-    // console.log("props in credits: ", this.props)
-    // console.log("title in props: ", this.props.title)
-    // console.log("year in props: ", this.props.year)
-    if(this.state.movie.title === undefined){
+    if(this.isMovieEmpty()){
         return(
             <p>Loading...</p>
         );
     }
     else{
-        return (
-            <Container>
-                <Row className={style.centered}>
-                  <p>Just a friendly paragraph</p>
-                  <p>Current movie {this.state.movie.title}</p>
-                </Row>
-            </Container>
-        );
+      const movie = this.state.movie;
+      return (
+          <Container className={style.centerCredits}>
+            <hr />
+            <Row>
+              <h4>Film Credits</h4>
+            </Row>
+            <Row>
+              <Col>
+                <img className={style.poster} alt="Movie Poster" src={movie.Poster}/>
+                <Typography variant="subtitle1">{movie.Title} ({movie.Year})</Typography>
+                <Typography variant="caption"><b>Rating:</b> {movie.Rated}</Typography>
+              </Col>
+              <Col>
+                {this.getCredits()}
+              </Col>
+            </Row>
+          </Container>
+      );
     }
   }
 }

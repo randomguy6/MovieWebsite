@@ -1,4 +1,8 @@
-.centered{
+.centerCredits{
     margin-left: auto;
     margin-right: auto;
+}
+
+.poster{
+    width: auto;
 }

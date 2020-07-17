@@ -4,8 +4,6 @@ const axios = require("axios");
 
 const imdbUrl = "http://www.omdbapi.com/";
 const imdbKey = "908db6be";
-const movie = "The Wicker Man"; // PLACE HOLDERS
-const movieYear = 2006; // PLACE HOLDERS
 
 // TODO put in error checking if year isnt specified
 
