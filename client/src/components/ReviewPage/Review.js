@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Container, Row } from "reactstrap";
 import StarRating from "react-star-ratings";
 import { Typography } from "@material-ui/core";
+import Credits from "./Credits/Credits";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Review.module.css';
 
@@ -19,6 +20,11 @@ export default class App extends Component{
     fetch("/review/"+name)
       .then(res => res.json())
       .then(movie => this.setState({movie}))
+  }
+
+  isMovieEmpty(){
+    let movie = this.state.movie;
+    return Object.keys(movie).length === 0;
   }
 
   renderHeader(){
@@ -66,18 +72,25 @@ export default class App extends Component{
   renderBody(){
     return(
       <Container className={style.body} id="reviewBody">
-        {/* <p>{this.state.movie.review}</p> */}
         {this.generateReview()}
       </Container>
     );
   }
 
   render() {
-    return (
-      <Container className={style.centered} id="review">
-        {this.renderHeader()}
-        {this.renderBody()}
-      </Container>
-    );
+    if(!this.isMovieEmpty()){
+      return (
+        <Container className={style.centered} id="review">
+          {this.renderHeader()}
+          {this.renderBody()}
+          <Credits title={this.state.movie.title} />
+        </Container>
+      );
+    }
+    else{
+      return(
+        <p>Loading...</p>
+      )
+    }
   }
 }

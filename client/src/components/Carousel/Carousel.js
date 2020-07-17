@@ -62,10 +62,19 @@ export default class CustomCarousel extends Component{
   }
 
   render() {
-    return (
-      <div id="homePage">
-        {this.renderCarousel()}
-      </div>
-    );
+    if(this.state.movies.length !== 0){
+      return (
+        <div id="homePage">
+          {this.renderCarousel()}
+        </div>
+      );
+    }
+    else{
+      return (
+        <div id="homePage">
+          <p>Loading...</p>
+        </div>
+      );
+    }
   }
 }
