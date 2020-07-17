@@ -10,7 +10,7 @@ const movieYear = 2006; // PLACE HOLDERS
 // TODO put in error checking if year isnt specified
 
 const getURL = (name, year) => {
-    const addYear = "";
+    let addYear = "";
     if(year !== undefined){
         addYear += "&y="+year;
     }

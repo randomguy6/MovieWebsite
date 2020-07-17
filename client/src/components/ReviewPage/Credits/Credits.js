@@ -23,6 +23,9 @@ export default class Credits extends Component{
     fetch("/credits/"+title+"/"+year())
       .then(res => res.json())
       .then(movie => this.setState({movie}))
+      .catch(error =>{
+          console.log(error);
+      })
   }
 
   render() {
@@ -39,7 +42,7 @@ export default class Credits extends Component{
             <Container>
                 <Row className={style.centered}>
                   <p>Just a friendly paragraph</p>
-                  <p>Current movie {this.props.title}</p>
+                  <p>Current movie {this.state.movie.title}</p>
                 </Row>
             </Container>
         );

@@ -83,7 +83,7 @@ export default class App extends Component{
         <Container className={style.centered} id="review">
           {this.renderHeader()}
           {this.renderBody()}
-          <Credits title={this.state.movie.title} />
+          <Credits title={this.state.movie.title} year={this.state.movie.year}/>
         </Container>
       );
     }
