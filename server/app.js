@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 var handleReview = require("./routes/review");
+var pgRouter = require("./routes/pg");
 
 var app = express();
 
@@ -25,10 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
-// app.use("/review/:id", reviewRouter);
 app.get("/review/:id", function(req, res, next){
   handleReview(req, res, next);
 });
+app.use("/pg", pgRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
