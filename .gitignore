@@ -1,4 +1,5 @@
 client/.env
+clint/node_modules
 client/package-lock.json
 client/package.json
 server/node_modules/

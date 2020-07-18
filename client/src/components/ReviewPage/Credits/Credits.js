@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Row, Col } from "reactstrap";
 import { Typography } from "@material-ui/core";
-// import style from '../Review.module.css';
 import style from './Credits.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -78,7 +77,6 @@ export default class Credits extends Component{
   }
 
   getCredits(){
-    const movie = this.state.movie;
     return(
       <div key="credits" id="credits">
         {this.getCast()}
@@ -97,7 +95,6 @@ export default class Credits extends Component{
       const movie = this.state.movie;
       return (
           <Container className={style.centerCredits}>
-            <hr />
             <Row>
               <h4>Film Credits</h4>
             </Row>

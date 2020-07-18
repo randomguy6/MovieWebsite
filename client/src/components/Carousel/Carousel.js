@@ -15,7 +15,7 @@ export default class CustomCarousel extends Component{
   }
 
   componentDidMount(){
-    fetch("/testAPI")
+    fetch("/carousel")
       .then(res => res.json())
       .then(movies => this.setState({movies}))
   }
