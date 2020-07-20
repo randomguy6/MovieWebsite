@@ -1,18 +1,28 @@
 var express = require("express");
+const MongoClient = require("mongodb").MongoClient;
+var url = require("../constants/constants").url;
+var getMovies = require("../constants/constants").getMovies;
 var router = express.Router();
-var dag = require("../constants/DAC.json");
-var san = require("../constants/Sanju.json");
-var wm = require("../constants/WickerMan.json");
-var un = require("../constants/Unbreakable.json")
-const movies = [dag, san, wm, un];
 
-const getMovies = function(movies){
-    return movies;
+async function getMovieList(){
+    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+    let ret = [];
+    try{
+        await client.connect();
+        ret = await getMovies(client);
+    }
+    catch(error){
+        console.log(error);
+    }
+    client.close();
+    return ret;
 }
 
 router.get("/", function(req, res, next){
-    const retMovies = getMovies(movies);
-    res.send(retMovies);
+    // let movies = getMovieList();
+    // res.send(movies);
+    getMovieList()
+      .then(movies => res.send(movies));
 });
 
 module.exports = router;
