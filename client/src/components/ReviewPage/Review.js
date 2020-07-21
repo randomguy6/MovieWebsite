@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Container, Row } from "reactstrap";
 import StarRating from "react-star-ratings";
-import { Typography } from "@material-ui/core";
+import { Typography, CircularProgress } from "@material-ui/core";
 import Credits from "./Credits/Credits";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Review.module.css';
@@ -56,7 +56,7 @@ export default class App extends Component{
       items.forEach((paragraph) =>{
         ret.push(
           <Row key={"paragraph" + count}>
-            <Typography variant="body1">{paragraph}</Typography>
+            <p>{paragraph}</p>
             <br />
           </Row>
         );
@@ -80,16 +80,21 @@ export default class App extends Component{
   render() {
     if(!this.isMovieEmpty()){
       return (
-        <Container className={style.centered} id="review">
-          {this.renderHeader()}
-          {this.renderBody()}
+        <div id="reviewPage">
+          <div  id="review">
+            {this.renderHeader()}
+            {this.renderBody()}
+            <hr className={style.line}/>
+          </div>
           <Credits title={this.state.movie.title} year={this.state.movie.year}/>
-        </Container>
+        </div>
       );
     }
     else{
       return(
-        <p>Loading...</p>
+        <Container className={style.centered} id="loading">
+          <CircularProgress />
+        </Container>
       )
     }
   }

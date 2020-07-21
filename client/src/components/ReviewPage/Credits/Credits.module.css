@@ -1,8 +1,19 @@
-.centerCredits{
+.center{
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+}
+
+.data{
+    margin-top: 5%;
+    width: auto;
 }
 
 .poster{
+    width: auto;
+    padding: 0px;
+}
+
+.poster > img {
     width: auto;
 }

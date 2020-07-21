@@ -18,9 +18,9 @@ async function getMovie(id){
     return ret;
 }
 
-const handleReview = function(req, res, next){
+router.get("/:id", function(req, res, next){
     let id = req.params.id;
     getMovie(id).then(movie => res.send(movie));
-};
+});
 
-module.exports = handleReview;
+module.exports = router;

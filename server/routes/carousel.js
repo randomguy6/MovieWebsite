@@ -19,8 +19,6 @@ async function getMovieList(){
 }
 
 router.get("/", function(req, res, next){
-    // let movies = getMovieList();
-    // res.send(movies);
     getMovieList()
       .then(movies => res.send(movies));
 });

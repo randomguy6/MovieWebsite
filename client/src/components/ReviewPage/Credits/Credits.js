@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Row, Col } from "reactstrap";
-import { Typography } from "@material-ui/core";
+import { Typography, Paper, Grid } from "@material-ui/core";
 import style from './Credits.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -44,21 +44,20 @@ export default class Credits extends Component{
         </Row>
       );
     });
-    console.log("After mapping", items);
     return(
-      <div id="cast" key="cast">
+      <Container id="cast" key="cast">
         <Row>
           <Typography variant="h6"><u>Cast: </u></Typography>
         </Row>
         {items}
-      </div>
+      </Container>
     );
   }
 
   getCrew(){
     const movie = this.state.movie;
     return(
-      <div id="crew" key="crew">
+      <Container id="crew" key="crew">
         <Row>
           <Typography variant="h6"><u>Director: </u></Typography>
         </Row>
@@ -72,7 +71,7 @@ export default class Credits extends Component{
         <Row>
           <Typography variant="subtitle1">{movie.Writer}</Typography>
         </Row>
-      </div>
+      </Container>
     );
   }
 
@@ -94,21 +93,23 @@ export default class Credits extends Component{
     else{
       const movie = this.state.movie;
       return (
-          <Container className={style.centerCredits}>
-            <Row>
-              <h4>Film Credits</h4>
-            </Row>
+        <div className={style.center}>
+          <h3>Film Credits</h3>
+          <Grid className={style.data} elevation={2}>
             <Row>
               <Col>
-                <img className={style.poster} alt="Movie Poster" src={movie.Poster}/>
-                <Typography variant="subtitle1">{movie.Title} ({movie.Year})</Typography>
+                <div className={style.poster}>
+                  <img alt="Movie Poster" src={movie.Poster}/>
+                </div>
+                <Typography variant="h4">{movie.Title} ({movie.Year})</Typography>
                 <Typography variant="caption"><b>Rating:</b> {movie.Rated}</Typography>
               </Col>
               <Col>
                 {this.getCredits()}
               </Col>
             </Row>
-          </Container>
+          </Grid>
+        </div>
       );
     }
   }
