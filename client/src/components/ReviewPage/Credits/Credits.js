@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Row, Col } from "reactstrap";
-import { Typography, /*Paper,*/ Grid } from "@material-ui/core";
+import { Typography, /*Paper, */Grid } from "@material-ui/core";
 import style from './Credits.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,48 +38,60 @@ export default class Credits extends Component{
     items = items.split(", ");
     items = items.map(actor =>{
       return(
-        <Row key={actor}>
+        <div key={actor}>
           <Typography variant="subtitle1">{actor}</Typography>
-        </Row>
+        </div>
       );
     });
     return(
-      <Container id="cast" key="cast">
-        <Row>
-          <Typography variant="h6"><u>Cast: </u></Typography>
-        </Row>
+      <div id="cast" key="cast">
+        <Typography variant="h6"><b><u>Cast: </u></b></Typography>
         {items}
-      </Container>
+        <br />
+      </div>
     );
   }
 
   getCrew(){
     const movie = this.state.movie;
     return(
-      <Container id="crew" key="crew">
-        <Row>
-          <Typography variant="h6"><u>Director: </u></Typography>
-        </Row>
-        <Row>
+      <div id="crew" key="crew">
+        <div>
+          <Typography variant="h6"><b><u>Director: </u></b></Typography>
+        </div>
+        <div>
           <Typography variant="subtitle1">{movie.Director}</Typography>
-        </Row>
+        </div>
         <br />
-        <Row>
-          <Typography variant="h6"><u>Writers: </u></Typography>
-        </Row>
-        <Row>
+        <div>
+          <Typography variant="h6"><b><u>Writers: </u></b></Typography>
+        </div>
+        <div>
           <Typography variant="subtitle1">{movie.Writer}</Typography>
-        </Row>
-      </Container>
+        </div>
+      </div>
     );
   }
 
   getCredits(){
     return(
-      <div key="credits" id="credits">
+      <Grid item key="credits" id="credits">
         {this.getCast()}
         {this.getCrew()}
+      </Grid>
+    );
+  }
+
+  getPosterInfo(){
+    const movie = this.state.movie;
+    return(
+    <Grid item key="Poster Info">
+      <div className={style.poster}>
+        <img alt="Movie Poster" src={movie.Poster}/>
       </div>
+      <Typography variant="h5">{movie.Title} ({movie.Year})</Typography>
+      <Typography variant="caption"><b>Rating:</b> {movie.Rated}</Typography>
+    </Grid>
     );
   }
 
@@ -91,23 +102,12 @@ export default class Credits extends Component{
         );
     }
     else{
-      const movie = this.state.movie;
       return (
         <div className={style.center}>
-          <h3>Film Credits</h3>
-          <Grid className={style.data} elevation={2}>
-            <Row>
-              <Col>
-                <div className={style.poster}>
-                  <img alt="Movie Poster" src={movie.Poster}/>
-                </div>
-                <Typography variant="h5">{movie.Title} ({movie.Year})</Typography>
-                <Typography variant="caption"><b>Rating:</b> {movie.Rated}</Typography>
-              </Col>
-              <Col>
-                {this.getCredits()}
-              </Col>
-            </Row>
+          <h3 style={{marginBottom: "3rem"}}>Film Credits</h3>
+          <Grid container justify="center" spacing={10}>
+            {this.getPosterInfo()}
+            {this.getCredits()}
           </Grid>
         </div>
       );

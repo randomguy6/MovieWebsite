@@ -6,12 +6,11 @@
 
 .data{
     margin-top: 5%;
-    width: auto;
 }
 
 .poster{
     width: auto;
-    padding: 0px;
+    margin-bottom: 1rem;
 }
 
 .poster > img {
