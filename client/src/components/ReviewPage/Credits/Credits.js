@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Row, Col } from "reactstrap";
-import { Typography, Paper, Grid } from "@material-ui/core";
+import { Typography, /*Paper,*/ Grid } from "@material-ui/core";
 import style from './Credits.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -101,7 +101,7 @@ export default class Credits extends Component{
                 <div className={style.poster}>
                   <img alt="Movie Poster" src={movie.Poster}/>
                 </div>
-                <Typography variant="h4">{movie.Title} ({movie.Year})</Typography>
+                <Typography variant="h5">{movie.Title} ({movie.Year})</Typography>
                 <Typography variant="caption"><b>Rating:</b> {movie.Rated}</Typography>
               </Col>
               <Col>

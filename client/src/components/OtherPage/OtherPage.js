@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Row, Col} from "react-bootstrap";
+// import {Row, Col} from "react-bootstrap";
 import { Paper, Typography, Grid } from "@material-ui/core";
-import Carousel from 'react-material-ui-carousel'
-import './OtherPage.css';
+// import Carousel from 'react-material-ui-carousel'
+// import './OtherPage.css';
 
 export default class OtherPage extends Component{
   constructor(props){

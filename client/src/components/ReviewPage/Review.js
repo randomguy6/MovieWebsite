@@ -42,7 +42,7 @@ export default class App extends Component{
             <h6 style={{paddingLeft: '10px'}}>{this.state.movie.reviewDate}</h6>
           </Row>
         </div>
-        <img src={this.state.movie.image} alt="movie still"/>
+        <img className={style.poster} src={this.state.movie.image} alt="movie still"/>
       </Container>
     );
   }
