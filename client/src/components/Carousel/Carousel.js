@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Row, Col } from "reactstrap"
+import { Button, Row, Col, Container } from "reactstrap"
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import StarRating from "react-star-ratings"
@@ -15,7 +15,7 @@ export default class CustomCarousel extends Component{
   }
 
   componentDidMount(){
-    fetch("/testAPI")
+    fetch("/carousel")
       .then(res => res.json())
       .then(movies => this.setState({movies}))
   }
@@ -28,7 +28,7 @@ export default class CustomCarousel extends Component{
           <Paper elevation={5}>
             <Row>
               <Col>
-                <img src={movie.image} alt={movie.title+ " Scene"}/>
+                <img style={{width: "100%", padding: "25px"}}src={movie.image} alt={movie.title+ " Scene"}/>
               </Col>
               <Col style={{padding: '25px'}}>
                 <h3>{movie.title} ({movie.year})</h3>
@@ -49,23 +49,34 @@ export default class CustomCarousel extends Component{
 
   renderCarousel(){
     return(
-      <div classs="carousel">
-        <Carousel className={style.Carousel} 
+      <Container classs="carousel">
+        <Carousel className={style.Carousel}
                   startAt={0} 
                   timer={1000} 
                   animation="fade" 
-                  navButtonsAlwaysVisible="true">
+                  navButtonsAlwaysVisible="true"
+                  autoPlay="false"
+                  >
           {this.renderCards()}
         </Carousel>
-      </div>
+      </Container>
     );
   }
 
   render() {
-    return (
-      <div id="homePage">
-        {this.renderCarousel()}
-      </div>
-    );
+    if(this.state.movies.length !== 0){
+      return (
+        <div id="homePage">
+          {this.renderCarousel()}
+        </div>
+      );
+    }
+    else{
+      return (
+        <div id="homePage">
+          <p>Loading...</p>
+        </div>
+      );
+    }
   }
 }

@@ -1,15 +1,15 @@
 var express = require("express");
-var router = express.Router();
 const MongoClient = require("mongodb").MongoClient;
 var url = require("../constants/constants").url;
-var findMovie = require("../constants/constants").findMovie;
+var getMovies = require("../constants/constants").getMovies;
+var router = express.Router();
 
-async function getMovie(id){
+async function getMovieList(){
     const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-    let ret = {};
+    let ret = [];
     try{
         await client.connect();
-        ret = await findMovie(client, id);
+        ret = await getMovies(client);
     }
     catch(error){
         console.log(error);
@@ -18,9 +18,9 @@ async function getMovie(id){
     return ret;
 }
 
-router.get("/:id", function(req, res, next){
-    let id = req.params.id;
-    getMovie(id).then(movie => res.send(movie));
+router.get("/", function(req, res, next){
+    getMovieList()
+      .then(movies => res.send(movies));
 });
 
 module.exports = router;

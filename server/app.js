@@ -5,9 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testAPIRouter = require("./routes/testAPI");
-var handleReview = require("./routes/review");
+var carouselRouter = require("./routes/carousel");
+var reviewRouter = require("./routes/review");
+var movieCreditRouter = require("./routes/movieCredits")
+var pgRouter = require("./routes/pg");
 
 var app = express();
 
@@ -23,12 +24,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/testAPI", testAPIRouter);
-// app.use("/review/:id", reviewRouter);
-app.get("/review/:id", function(req, res, next){
-  handleReview(req, res, next);
-});
+app.use("/carousel", carouselRouter);
+app.use("/review", reviewRouter);
+app.use("/credits", movieCreditRouter);
+app.use("/pg", pgRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
