@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.mainApp{
+  /* font-family: 'Slabo 27px', serif; */
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -12,7 +12,7 @@ export default class App extends Component{
 
   render() {
     return (
-      <div id="mainApp">
+      <div class="mainApp" id="mainApp">
         <Router>
           <Navigation/>
           <div id="switches">
