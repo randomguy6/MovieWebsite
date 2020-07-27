@@ -18,7 +18,7 @@ export default class Navigation extends Component{
           <Nav className={style.centered}>
               <NavLink exact="true" href="/">Home</NavLink>
               {/* <NavLink>Rants</NavLink> */}
-              {/* <NavLink>Reviews</NavLink> */}
+              <NavLink exact="true" href="/reviews">Reviews</NavLink>
               <NavLink exact="true" href="/other/123">Random Page</NavLink>
               <NavLink exact="true" href="/about">About Me</NavLink>
           </Nav>
