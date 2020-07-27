@@ -6,7 +6,7 @@ import Credits from "./Credits/Credits";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Review.module.css';
 
-export default class App extends Component{
+export default class Review extends Component{
 
   constructor(props){
     super(props)

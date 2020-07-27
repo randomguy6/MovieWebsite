@@ -1,0 +1,25 @@
+.footer{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    /* background-color: rgb(34, 34, 34); */
+    /* color: rgb(92, 92, 92); */
+    /* height: 15rem; */
+    text-align: center;
+}
+
+.links{
+    margin: 0rem .25rem 0.5rem;
+}
+
+.icons i{
+    font-size: 2.25rem;
+    margin: 1rem .75rem;
+}
+
+.icons a{
+    color: lightgrey;
+}
+
+.icons a:hover{
+    color: grey;
+}
