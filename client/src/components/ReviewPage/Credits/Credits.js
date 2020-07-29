@@ -54,6 +54,16 @@ export default class Credits extends Component{
 
   getCrew(){
     const movie = this.state.movie;
+    const writers = () => {
+      let writers = movie.Writer.split(", ")
+      return writers.map(writer => {
+        return(
+        <div key={writer}>
+          <Typography variant="subtitle1">{writer}</Typography>
+        </div>
+        );
+      });
+    };
     return(
       <div id="crew" key="crew">
         <div>
@@ -67,7 +77,7 @@ export default class Credits extends Component{
           <Typography variant="h6"><b><u>Writers: </u></b></Typography>
         </div>
         <div>
-          <Typography variant="subtitle1">{movie.Writer}</Typography>
+          {writers()}
         </div>
       </div>
     );

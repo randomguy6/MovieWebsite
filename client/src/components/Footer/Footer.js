@@ -8,8 +8,8 @@ export default class Footer extends Component{
   renderIcons(){
     return(
       <div className={style.icons} id="icons">
-        <a href="https://github.com/randomguy6/MovieWebsite" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/saivdonepudi" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin-square"></i></a>
+        <a href="https://github.com/randomguy6/MovieWebsite" target="_blank" rel="noopener noreferrer"><i className="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/saivdonepudi" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin-square"></i></a>
       </div>
     );
   }
@@ -17,7 +17,7 @@ export default class Footer extends Component{
   renderLinks(){
     return(
       <div className={style.links} id="links">
-        <Typography variant="subtitle2">About</Typography>
+        <a href="/about"><Typography variant="subtitle2">About</Typography></a>
       </div>
     );
   }

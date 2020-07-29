@@ -92,7 +92,7 @@ export default class Review extends Component{
     }
     else{
       return(
-        <Container className={style.centered} id="loading">
+        <Container id="loading">
           <CircularProgress />
         </Container>
       )

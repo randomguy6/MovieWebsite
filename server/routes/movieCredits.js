@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const axios = require("axios");
-
-const imdbUrl = "http://www.omdbapi.com/";
-const imdbKey = "908db6be";
-
-// TODO put in error checking if year isnt specified
+const { imdbUrl, imdbKey } = require("../constants/constants")
 
 const getURL = (name, year) => {
     let addYear = "";
