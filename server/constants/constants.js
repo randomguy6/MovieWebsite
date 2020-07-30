@@ -25,19 +25,23 @@ async function getMovieList(){
     let ret = [];
     try{
         await client.connect();
-        ret = await getFourMovies(client);
-        // axios.get(imdbUrl+"?t="+name+addYear+"&apikey="+imdbKey)
-        // .then((res) => {
-        //     response.send(res.data);
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        // });
+				ret = await getFourMovies(client);
+        // ret = ret.map(movie =>{
+				// 	axios.get(imdbUrl+"?t="+movie.title+"&y="+movie.year+"&apikey="+imdbKey)
+				// 	.then((res) => {
+				// 		movie.poster = res.data.Poster;
+				// 		console.log("After changing movie: ", movie);
+				// 	})
+				// 	.catch(error => {
+				// 		console.log(error);
+				// 	});
+				// });
     }
     catch(error){
         console.log(error);
     }
-    client.close();
+		client.close();
+		// console.log("Before returning: ", ret);
     return ret;
 }
 

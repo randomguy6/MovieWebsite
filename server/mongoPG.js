@@ -61,4 +61,8 @@ async function main(){
     }
 }
 
-main();
+// main();
+
+let thing = {name: "Bob"};
+thing.otherthing = "something";
+console.log(thing);

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Paper, Grid } from "@material-ui/core";
+import { Paper, Grid, Typography } from "@material-ui/core";
+import StarRating from "react-star-ratings";
 import style from './latestReviews.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,8 +23,14 @@ export default class latestReviews extends Component{
     return this.state.movies.map(movie =>{
       return(
         <Grid item>
-          <Paper className={style.paper}>
-            Test
+          <Paper className={style.card} elevation={0}>
+            <a href={"/review/" + movie.title}><img alt="poster" src={movie.poster}/></a>
+            <a href={"/review/" + movie.title}><Typography variant="h6">{movie.title}</Typography></a>
+            <StarRating rating={movie.rating}
+                        starRatedColor="rgb(218,165,32)"
+                        starDimension="1.5rem"
+                        starEmptyColor="white"
+            />
           </Paper>
         </Grid>
       );
@@ -33,8 +40,9 @@ export default class latestReviews extends Component{
   render() {
     return (
       <div className={style.center}>
-        <h1>Latest Movies</h1>
-        <Grid justify="center" container spacing={4}>
+        <hr className={style.line}/>
+        <Typography style={{marginBottom: "2rem"}} variant="h4">Latest Movies</Typography>
+        <Grid justify="center" container spacing={10}>
           {this.renderCard()}
         </Grid>
       </div>
