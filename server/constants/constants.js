@@ -1,5 +1,7 @@
-const url = "mongodb+srv://getaloadofthisguy:UTx48TOI97aaBuom@sandboc.yxkl3.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const MongoClient = require("mongodb").MongoClient;
+const axios = require("axios");
 
+const url = "mongodb+srv://getaloadofthisguy:UTx48TOI97aaBuom@sandboc.yxkl3.mongodb.net/<dbname>?retryWrites=true&w=majority";
 const imdbUrl = "http://www.omdbapi.com/";
 const imdbKey = "908db6be";
 
@@ -17,10 +19,32 @@ async function findMovie(client, movieName){
     ret = await client.db("reviews").collection("reviews").find(query, options).toArray();
     return ret[0];
 }
+
+async function getMovieList(){
+    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+    let ret = [];
+    try{
+        await client.connect();
+        ret = await getFourMovies(client);
+        // axios.get(imdbUrl+"?t="+name+addYear+"&apikey="+imdbKey)
+        // .then((res) => {
+        //     response.send(res.data);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // });
+    }
+    catch(error){
+        console.log(error);
+    }
+    client.close();
+    return ret;
+}
+
 module.exports = {
     url: url,
     imdbUrl: imdbUrl,
     imdbKey: imdbKey,
-    getMovies: getFourMovies,
+    getMovies: getMovieList,
     findMovie: findMovie
 }
