@@ -7,7 +7,8 @@ var cors = require("cors");
 var indexRouter = require('./routes/index');
 var carouselRouter = require("./routes/carousel");
 var reviewRouter = require("./routes/review");
-var movieCreditRouter = require("./routes/movieCredits")
+var movieCreditRouter = require("./routes/movieCredits");
+var allMovieRouter = require("./routes/allMovies");
 var pgRouter = require("./routes/pg");
 
 var app = express();
@@ -24,9 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use("/all-movies", allMovieRouter);
 app.use("/carousel", carouselRouter);
-app.use("/review", reviewRouter);
 app.use("/credits", movieCreditRouter);
+app.use("/review", reviewRouter);
 app.use("/pg", pgRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -17,7 +17,7 @@ export default class Navigation extends Component{
   renderLinks(){
     return this.state.links.map(link => {
       return (
-        <NavLink className={style.link} exact="true" href={link.ref}>{link.name}</NavLink>
+        <NavLink key={"link-"+link.name} className={style.link} exact="true" href={link.ref}>{link.name}</NavLink>
       );
     });
   }

@@ -5,10 +5,15 @@ const url = "mongodb+srv://getaloadofthisguy:UTx48TOI97aaBuom@sandboc.yxkl3.mong
 const imdbUrl = "http://www.omdbapi.com/";
 const imdbKey = "908db6be";
 
-async function getFourMovies(client){
-    let options = {limit: 4};
+async function getFourMovies(client, n){
+    let options = () =>{
+        if(n>0)
+            return {limit: n};
+        else
+            return {};
+    };
     let ret = [];
-    ret = await client.db("reviews").collection("reviews").find({}, options).sort({ _id : -1 }).toArray();
+    ret = await client.db("reviews").collection("reviews").find({}, options()).sort({ _id : -1 }).toArray();
     return ret;
 }
 
@@ -20,12 +25,12 @@ async function findMovie(client, movieName){
     return ret[0];
 }
 
-async function getMovieList(){
+async function getMovieList(n=4){
     const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
     let ret = [];
     try{
         await client.connect();
-				ret = await getFourMovies(client);
+        ret = await getFourMovies(client, n);
         // ret = ret.map(movie =>{
 				// 	axios.get(imdbUrl+"?t="+movie.title+"&y="+movie.year+"&apikey="+imdbKey)
 				// 	.then((res) => {
@@ -41,7 +46,6 @@ async function getMovieList(){
         console.log(error);
     }
 		client.close();
-		// console.log("Before returning: ", ret);
     return ret;
 }
 

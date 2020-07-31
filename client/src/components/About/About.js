@@ -9,9 +9,9 @@ export default class About extends Component{
   renderCards(){
     return statements.map(card =>{
       return(
-        <Grid item>
+        <Grid key={card.title} item>
           <Paper className={style.cards} elevation={3}>
-            <h3><u>{card.title}</u></h3>
+            <h3 style={{textAlign: "center"}}><u>{card.title}</u></h3>
             <p>{card.description}</p>
           </Paper>
         </Grid>
@@ -23,8 +23,8 @@ export default class About extends Component{
   render() {
     return (
       <div key="about">
-        <Grid container class={style.About} spacing={2}>
-          <h1>About Spotlight Reviews</h1>
+        <h1 style={{textAlign: "center"}}>About Spotlight Reviews</h1>
+        <Grid container justify="center" spacing={2}>
           {this.renderCards()}
         </Grid>
       </div>
