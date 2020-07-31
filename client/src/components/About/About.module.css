@@ -1,8 +1,7 @@
 .About{
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .cards{
-    height: auto;
-    width: 40%;
+    padding: 1rem;
 }
