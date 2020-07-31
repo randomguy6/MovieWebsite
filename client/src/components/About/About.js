@@ -16,7 +16,7 @@ export default class About extends Component{
         //     <Typography>{card.description}</Typography>
         //   </Paper>
         // </Grid>
-          <Col>
+          <Col key={card.title}>
             <Paper className={style.cards} elevation={3}>
               <h3 style={{textAlign: "center"}}><u>{card.title}</u></h3>
               <p>{card.description}</p>
