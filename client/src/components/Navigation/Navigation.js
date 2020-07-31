@@ -1,28 +1,34 @@
 import React, {Component} from 'react';
-import { Navbar, Nav, NavLink } from "react-bootstrap"
+import { Nav, NavbarBrand, NavLink } from "reactstrap"
 import style from './Navigation.module.css';
 
 export default class Navigation extends Component{
   constructor(props){
     super(props);
     this.state = {
-      navActive: "Home"
+      // PUT THESE IN ORDER
+      links: [{ name: "Home", ref: "/"}, 
+              { name: "Reviews", ref: "/reviews"},
+              { name: "Playground", ref: "/other/123"},
+              { name: "About Me", ref: "/about"}]
     };
+  }
+
+  renderLinks(){
+    return this.state.links.map(link => {
+      return (
+        <NavLink key={"link-"+link.name} className={style.link} exact="true" href={link.ref}>{link.name}</NavLink>
+      );
+    });
   }
 
   render() {
     return (
       <div id="navigationBar">
-        <Navbar.Brand>Future Logo in Here</Navbar.Brand>
-        <Navbar bg="light" sticky="top">
-          <Nav className={style.centered}>
-              <NavLink exact="true" href="/">Home</NavLink>
-              {/* <NavLink>Rants</NavLink> */}
-              {/* <NavLink>Reviews</NavLink> */}
-              <NavLink exact="true" href="/other/123">Random Page</NavLink>
-              <NavLink exact="true" href="/about">About Me</NavLink>
+        <NavbarBrand>Future Logo in Here</NavbarBrand>
+          <Nav horizontal="center">
+              {this.renderLinks()}
           </Nav>
-        </Navbar>
       </div>
     );
   }

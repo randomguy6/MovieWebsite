@@ -1,14 +1,12 @@
 .navigationBar {
-    margin: auto;
     width: 50%;
     padding: 10px;
 }
 
-.centered{
-    margin-left: auto;
-    margin-right: auto;
+.link{
+    color: black;
 }
 
-.nav-link a:hover{
+.link a:hover{
     color: rgb(218,165,32);
 }

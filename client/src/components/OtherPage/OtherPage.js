@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import {Row, Col} from "react-bootstrap";
-import { Paper, Typography, Grid } from "@material-ui/core";
+import { Paper/*, Typography, Grid*/ } from "@material-ui/core";
 // import Carousel from 'react-material-ui-carousel'
 // import './OtherPage.css';
 
@@ -46,18 +46,7 @@ export default class OtherPage extends Component{
         {/* {this.renderTestCarousel()} */}
         <h2 style={{textAlign: "center"}}>Friendly center boi</h2>
         <Paper style={{width: "auto", marginLeft: "auto", marginRight: "auto"}} elevation={3}>
-          <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-            <Grid item container direction="column">
-              <div>
-                <img alt="Movie Poster" src="https://static.rogerebert.com/uploads/movie/movie_poster/ghosts-of-war-2020/large_ghosts-of-war-poster.jpg"/>
-              </div>
-              <Typography variant="h6">Something in some year</Typography>
-              <Typography variant="caption"><b>Rating:</b> 2.5</Typography>
-            </Grid>
-            <Grid item container direction="column">
-              <p>I am boi</p>
-            </Grid>
-          </Grid>
+          <p>am great boi</p>
         </Paper>
       </div>
     );

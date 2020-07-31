@@ -1,0 +1,35 @@
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.card{
+    width: 12rem;
+    height: auto;
+    padding-bottom: 1rem;
+    text-align: left;
+}
+
+.card a {
+    color: rgb(44, 44, 184);
+}
+
+.card img{
+    width: 12rem;
+    height: 19rem;
+    padding-bottom: 1rem;
+    border-radius: .5rem;
+}
+
+.card h6{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.line {
+    margin-top: 10%;
+    border: 3px solid rgb(218,165,32);
+    border-radius: 10px;
+    width: 100px;
+}
