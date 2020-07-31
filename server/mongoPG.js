@@ -63,6 +63,9 @@ async function main(){
 
 // main();
 
-let thing = {name: "Bob"};
-thing.otherthing = "something";
-console.log(thing);
+// let thing = {name: "Bob"};
+// thing.otherthing = "something";
+// console.log(thing);
+
+const date = new Date("2020-07-31T06:00:00.000Z");
+console.log(date.toDateString());

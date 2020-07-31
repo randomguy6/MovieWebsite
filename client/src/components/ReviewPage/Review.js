@@ -28,6 +28,7 @@ export default class Review extends Component{
   }
 
   renderHeader(){
+    const date = new Date(this.state.movie.reviewDate);
     return(
       <Container id="reviewHeader">
         <div id="contents" className={style.header}>
@@ -39,7 +40,7 @@ export default class Review extends Component{
                   />
           <Row className={style.author}>
             <a href="/about"><h6>Sai Donepudi</h6></a>
-            <h6 style={{paddingLeft: '10px'}}>{this.state.movie.reviewDate}</h6>
+            <h6 style={{paddingLeft: '10px'}}>{date.toDateString()}</h6>
           </Row>
         </div>
         <img className={style.poster} src={this.state.movie.image} alt="movie still"/>

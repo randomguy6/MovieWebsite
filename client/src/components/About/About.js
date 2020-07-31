@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { /*Grid,*/ Paper, Typography } from "@material-ui/core" //MIGHT LOOK INTO WHEN DOING ANOTHER ISSUE
+import { /*Grid,*/ Paper, /*Typography*/ } from "@material-ui/core" //MIGHT LOOK INTO WHEN DOING ANOTHER ISSUE
 import {Container, Row, Col} from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from "./About.module.css";
