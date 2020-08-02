@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Typography } from "@material-ui/core";
 import MovieCard from "../MovieCard/MovieCard";
-import style from './Search.module.css';
 
 export default class Search extends Component{
   constructor(props){
