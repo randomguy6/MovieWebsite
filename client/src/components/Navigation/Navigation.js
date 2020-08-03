@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { Nav, NavbarBrand, NavLink, Form } from "reactstrap";
 import { Grid, Input } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-// import { useHistory } from "react-router-dom";
 import style from './Navigation.module.css';
 
 export default class Navigation extends Component{
@@ -16,15 +16,9 @@ export default class Navigation extends Component{
               { name: "Reviews", ref: "/reviews"},
               { name: "Playground", ref: "/other/123"},
               { name: "About Me", ref: "/about"}],
-      search: "",
-      // history: useHistory()
+      search: ""
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(){
-    // this.state.history.push("/search/"+this.state.search);
-    console.log("Search is: " + this.state.search);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   renderLinks(){
@@ -41,9 +35,11 @@ export default class Navigation extends Component{
         <NavbarBrand>Future Logo in Here</NavbarBrand>
         <Form>
           <Input className={style.input} type="textarea" placeholder="Search movie..." onChange={(e) => this.setState({search: e.target.value})}/>
-          <IconButton onClick={this.handleSubmit}>
-            <SearchIcon />
-          </IconButton>
+            <Link to={"/search/"+this.state.search}>
+              <IconButton>
+                <SearchIcon />
+              </IconButton>
+            </Link>
         </Form>
         <hr />
         <Nav horizontal="center">
