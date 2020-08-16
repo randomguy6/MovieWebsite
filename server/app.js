@@ -9,6 +9,7 @@ var carouselRouter = require("./routes/carousel");
 var reviewRouter = require("./routes/review");
 var movieCreditRouter = require("./routes/movieCredits");
 var allMovieRouter = require("./routes/allMovies");
+var searchRouter = require("./routes/search");
 var pgRouter = require("./routes/pg");
 
 var app = express();
@@ -30,6 +31,7 @@ app.use("/carousel", carouselRouter);
 app.use("/credits", movieCreditRouter);
 app.use("/review", reviewRouter);
 app.use("/pg", pgRouter);
+app.use("/search", searchRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

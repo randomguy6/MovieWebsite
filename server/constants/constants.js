@@ -17,11 +17,15 @@ async function getFourMovies(client, n){
     return ret;
 }
 
-async function findMovie(client, movieName){
+async function findMovie(client, movieName, limit = 1){
     let query = {title: movieName};
-    let options = {limit: 1};
+    let options = () => {
+        if(limit>0)
+            return {limit: limit};
+        return {}
+    }
     let ret = [];
-    ret = await client.db("reviews").collection("reviews").find(query, options).toArray();
+    ret = await client.db("reviews").collection("reviews").find(query, options()).toArray();
     return ret[0];
 }
 

@@ -1,6 +1,10 @@
 .navigationBar {
-    width: 50%;
-    padding: 10px;
+    width: 75%;
+    margin: 1rem auto 0rem;
+}
+
+.input{
+    width: 20%;
 }
 
 .link{
@@ -9,4 +13,8 @@
 
 .link a:hover{
     color: rgb(218,165,32);
+}
+
+.search{
+    width: 50rem;
 }
