@@ -32,32 +32,35 @@ export default class Navigation extends Component{
 
   handleKeyPress(e){
     if (e.key === 'Enter') {
-      return <Redirect to={"/search/"+this.state.search} />
+      console.log("Enter is hit")
+      // return <Redirect to={"/search/"+this.state.search} />
     }
   }
 
   renderSearch(){
-    if(this.state.search.length === 0)
-      return <Redirect to={"/search/"+this.state.search} />
-    else{
-      return(
-        <Form>
-          <Input className={style.input} type="textarea" placeholder="Search movie..." onKeyDown={this.handleKeyPress} onChange={(e) => this.setState({search: e.target.value})}/>
-            <Link to={"/search/"+this.state.search}>
-              <IconButton>
-                <SearchIcon />
-              </IconButton>
-            </Link>
-        </Form>
-      );
-    }
+    return(
+      <Form className={style.search}>
+        <Input className={style.input} type="textarea" placeholder="Search movie..." onKeyPress={this.handleKeyPress} onChange={(e) => this.setState({search: e.target.value})}/>
+          <Link to={"/search/"+this.state.search}>
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+          </Link>
+      </Form>
+    );
   }
 
   render() {
     return (
       <div className={style.navigationBar} id="navigationBar">
-        <NavbarBrand>Future Logo in Here</NavbarBrand>
-        {this.renderSearch()}
+        <Grid justify="center" container>
+          <Grid item>
+            <NavbarBrand>Future Logo in Here</NavbarBrand>
+          </Grid>
+          <Grid item>
+            {this.renderSearch()}
+          </Grid>
+        </Grid>
         <hr />
         <Nav horizontal="center">
           {this.renderLinks()}

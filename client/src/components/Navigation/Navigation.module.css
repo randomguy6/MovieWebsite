@@ -14,3 +14,7 @@
 .link a:hover{
     color: rgb(218,165,32);
 }
+
+.search{
+    width: 50rem;
+}
